@@ -1,7 +1,7 @@
 /**
  * Compute the sum and average for running integers using loop.
  */
-public class SumAverage {
+public class SumAverage<sum> {
 
     /**
      * Computes sum of running integers from a lower bound to an upper bound.
@@ -12,9 +12,11 @@ public class SumAverage {
      */
     public static int sum(int lowerBound, int upperBound) {
         int sum = 0;
+
         for (int i = lowerBound; i <= upperBound; i++) {
             sum += i;
         }
+        
         return sum;
     }
 
@@ -26,9 +28,11 @@ public class SumAverage {
      */
     public static int sum(int[] numbers) {
         int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
+
+        for (Integer i : numbers) {
+            sum += i;
         }
+
         return sum;
     }
 
@@ -41,9 +45,13 @@ public class SumAverage {
      */
     public static double average(int lowerBound, int upperBound) {
         double sum = 0;
-        for (int i = lowerBound; i <= upperBound; i++) {
+        int i = lowerBound;
+
+        while (i <= upperBound) {
             sum += i;
+            i++;
         }
+
         return sum / (upperBound - lowerBound + 1);
     }
 
@@ -55,9 +63,13 @@ public class SumAverage {
      */
     public static double average(int[] numbers) {
         double sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
+        int i = 0;
+
+        do {
             sum += numbers[i];
-        }
+            i++;
+        } while (i < numbers.length);
+
         return sum / numbers.length;
     }
 }
